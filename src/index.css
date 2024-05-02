@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    --light_black:rgb(30,31,41);
+    --black:rgb(21,22,29);
+    --red:rgb(210,23,55);
+    --gray:rgb(229,230,239);
+    --drak_gray:rgb(185,186,188);
+  }
+
+.bg-red{
+  background-color: var(--red);
+}
+.bg-gray{
+  background-color: var(--gray);
+}
+.bg-drak_gray{
+  background-color: var(--drak_gray);
+}
+.bg-light_black{
+  background-color: var(--light_black);
+}
+.bg-dark_black{
+  background-color: var(--black);
+}
+.text-red{
+  color: var(--red);
+}
+.text-gray{
+  color: var(--gray);
+}
+.text-drak_gray{
+  color: var(--drak_gray);
+}
+.text-light_black{
+  color: var(--light_black);
+}
+.text-dark_black{
+  color: var(--black);
+}
