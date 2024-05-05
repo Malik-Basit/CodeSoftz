@@ -9,13 +9,12 @@ const Singup = () => {
         password:'',
         checked:false
     })
-   const [AllData,setAllData] = useState([])
-    
+  
     const submit = (e)=>{
         e.preventDefault();
-        setAllData(prev=>[...prev, data]);
-        console.log(AllData)
+       
         if(data.checked&&data.email&&data.password.length>10&&data.name){
+            localStorage.setItem('user',JSON.stringify(data))
             Navigate('/login')
         }
     }
@@ -34,7 +33,7 @@ const Singup = () => {
             <label htmlFor="check">I agree all statements in <a href="# " className='underline font-semibold ' >Terms of service</a></label>
             <input onClick={submit} className='w-full p-4 border bg-gradient-to-r from-[rgb(30,31,41)] to-[rgb(21,22,29)] opacity-[0.8] poppins-bold rounded-md cursor-pointer text-white  my-5' type="button" value="Sing up" />
         </form> 
-        <h2>Have already an account ? <Link className='underline font-semibold' >Login here</Link></h2>
+        <h2>Have already an account ? <Link className='underline font-semibold' to={'/login'} >Login here</Link></h2>
     </div>
     </div>
   )

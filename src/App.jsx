@@ -12,8 +12,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Route>
         <Route path="*" element={<Nopage />} />
-        <Route path='/login' element={<Login />} />
         <Route path='/singup' element={<Singup />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>
   )
