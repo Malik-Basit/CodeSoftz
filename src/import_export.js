@@ -4,4 +4,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Layout from "./layout";
 import Nopage from "./pages/Nopage";
-export  {Home, Contact, About,Cart,Layout,Nopage};
+import NavBar from "./components/Navbar";
+import Login from "./pages/Auth/Login";
+import Singup from "./pages/Auth/Singup";
+export  {Home, Contact, About,Cart,Layout,Nopage,NavBar,Login,Singup};

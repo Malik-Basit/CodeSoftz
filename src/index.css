@@ -1,14 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root {
-    --light_black:rgb(30,31,41);
-    --black:rgb(21,22,29);
-    --red:rgb(210,23,55);
-    --gray:rgb(229,230,239);
-    --drak_gray:rgb(185,186,188);
-  }
 
+:root {
+  --light_black:rgb(30,31,41);
+  --black:rgb(21,22,29);
+  --red:rgb(210,23,55);
+  --gray:rgb(229,230,239);
+  --drak_gray:rgb(185,186,188);
+}
+*{
+  list-style-type: none;
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  
+}
+input{
+ display: block;
+}
 .bg-red{
   background-color: var(--red);
 }
