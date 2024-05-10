@@ -1,15 +1,22 @@
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {Layout,Home,Contact,About,Cart,Nopage,Login,Singup} from './import_export.js';
+import {Layout,Home,Category,Cameras, HotDeals,Smartphones,Accessories,Laptops,Cart,Nopage,Login,Singup,Protected} from './import_export.js';
 function App() { 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/About" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart />} />
+         <Route path='/' element={<Protected/>} >
+         <Route index element={<Home />} />
+         </Route>
+         
+          <Route path="/Accessories" element={<Accessories />} />
+          <Route path="/Smartphone" element={<Smartphones />} />
+          <Route path="/Camera" element={<Cameras />} />
+          <Route path="/Laptop" element={<Laptops />} />
+          <Route path="/Cart" element={<Cart />} />
+          <Route path='Category' element={<Category />} />
+          <Route path="/HotDeals" element={<HotDeals />} />
         </Route>
         <Route path="*" element={<Nopage />} />
         <Route path='/singup' element={<Singup />} />

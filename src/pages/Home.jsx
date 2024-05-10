@@ -1,8 +1,12 @@
 import React from 'react'
-
+import { Hero,Middle,Footer } from '../import_export';
 export const Home = () => {
   return (
-    <div>Home</div>
+    <>
+    <Hero/>
+    <Middle/>
+    <Footer/>
+    </>
   )
 }
 export default Home;
