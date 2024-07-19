@@ -12,8 +12,9 @@ const Singup = () => {
   
     const submit = (e)=>{
         e.preventDefault();
-       
-        if(data.checked&&data.email&&data.password.length>10&&data.name){
+         
+        if(data.checked&&data.email&&data.password.length>=10&&data.name){
+        
             localStorage.setItem('user',JSON.stringify(data))
             Navigate('/login')
         }

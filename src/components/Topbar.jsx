@@ -1,12 +1,36 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CIcon from '@coreui/icons-react';
 import {cilMenu,cilDollar,cilHeart,cilCart,cilPhone,cilEnvelopeClosed,cilLockLocked,cilLocationPin} from '@coreui/icons'
 import NavBar from './Navbar';
+import { useContext } from 'react';
+import usecontext from '../Hooks/usecontext';
+import Accountbox from './Accountbox';
 const Topbar = () => {
+   const data = useContext(usecontext);
+   const referance = useRef(null);
+   const referance2 = useRef(null);
+
+   const handleOutsideClicked =(event)=>{
+    if (referance.current &&!referance.current.contains(event.target) && !referance2.current.contains(event.target)) {
+      setIstrue(false);
+    }
+   }
+
+   useEffect(()=>{
+     document.addEventListener('mousedown', handleOutsideClicked);
+     return () => document.removeEventListener('mousedown', handleOutsideClicked);
+   },[])
+
+   const [istrue,setIstrue]=useState(false);
+
+   const toggle = () => {
+      setIstrue(!istrue);
+   }
+
   return (
     <>
-    <div className='border-b-4 border-[rgb(210,23,55)]' >
+    <div className='border-b-4 relative w-full border-[rgb(210,23,55)]' >
   <div className="flex justify-between flex-wrap px-6 py-2 bg-light_black w-full">
     <div className="left">
       <ul className='flex gap-x-7 flex-wrap' >
@@ -15,11 +39,19 @@ const Topbar = () => {
         <li className='flex gap-x-2 text-red-500' > <span> <CIcon className='w-[1.5rem]' icon={cilLocationPin} ></CIcon> </span> <span className='text-white text-sm hover:text-[rgb(210,23,55)] cursor-pointer' >1734 Stonecoal Road</span>  </li>
       </ul>
     </div>
-    <div className="right">
+    <div className="right  relative">
     <ul className='flex gap-x-7 flex-wrap ' >
         <li className='flex gap-x-2 text-red-500' > <span ><CIcon className='w-[1.5rem]' icon={cilDollar} ></CIcon></span> <span className='text-white text-sm hover:text-[rgb(210,23,55)] cursor-pointer' > USD</span> </li>
-        <li className='flex gap-x-2 text-red-500' > <span> <CIcon className='w-[1.5rem]' icon={cilLockLocked} ></CIcon> </span> <Link className='text-white text-sm hover:text-[rgb(210,23,55)] cursor-pointer' >My Account</Link>  </li>
+        <li  ref={referance2} onClick={()=>{toggle()}} className='flex gap-x-2 text-red-500' > <span> <CIcon className='w-[1.5rem]' icon={cilLockLocked} ></CIcon> </span> <Link className='text-white text-sm hover:text-[rgb(210,23,55)] cursor-pointer' >My Account</Link>  </li>
       </ul>
+          
+      {
+      istrue && 
+      <div ref={referance} className='absolute -right-[5rem] md:right-2 top-10 z-10' >
+        <Accountbox/>
+      </div>
+       }
+
     </div>
   </div>
 
@@ -54,8 +86,8 @@ const Topbar = () => {
         <p className='text-xs mt-2 poppins-semibold' >Your Cart</p>
     </div>
     <div className="menu text-white block  md:hidden">
-       <CIcon  className=' md:w-[2vw] w-[1.5rem]' icon={cilMenu} size="sm" />
-        <h1 className='text-xs mt-2 poppins-semibold' >Menu</h1>
+      <button onClick={()=>data.toggle()} > <CIcon  className=' md:w-[2vw] w-[1.5rem]' icon={cilMenu} size="sm" /></button>
+        <h1 className='text-xs mt-2 poppins-semibold' >Menu {data.istrue}</h1>
     </div>
 </div>
 </div>

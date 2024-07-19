@@ -13,6 +13,7 @@ const Login = () => {
      const handleSubmit=(e)=>{
          e.preventDefault();
          const Logindata= JSON.parse(localStorage.getItem('user'));
+         console.log(Logindata);
          if(data.name === Logindata.name&&data.password === Logindata.password){
             Navigate('/');
             localStorage.setItem('Login',true)

@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+  .clip-diagonal {
+    clip-path: polygon(0% 0%, 91.1% 0%, 31% 100%, 0% 100%);
+  }
+
+
+
 :root {
   --light_black:rgb(30,31,41);
   --black:rgb(21,22,29);
@@ -75,3 +82,54 @@ input{
 .text-dark_black{
   color: var(--black);
 }
+.box_shadow{
+  box-shadow: rgb(228, 231, 237) 0px 0px 0px 0px, rgb(228, 231, 237) 0px 0px 0px 1px;
+}
+.box_shadow2{
+  box-shadow: rgb(210,23,55) 0px 0px 0px 0px, rgb(210,23,55) 0px 0px 0px 1px;
+}
+.group1:hover .group1child{
+  box-shadow: rgb(210,23,55) 0px 0px 0px 0px, rgb(210,23,55) 0px 0px 0px 1px;
+}
+
+.group1:hover .addtocart{
+  animation: animate 1s ease-in-out forwards ;
+}
+
+.email_buttons li{
+  width: 45px;
+  height: 30px;
+  border: 1px solid gray;
+  display: flex ;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+  font-size: 12px;
+  padding: 0% 10px;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+  border-radius: 5px;
+}
+.email_buttons li:hover{
+  background-color: rgb(228,231,237);
+  color: red;
+}
+.col ul{
+  width: fit-content;
+}
+.col ul li{
+  transition:all .3s ease-in-out;
+}
+.col ul li:hover{
+  cursor: pointer;
+  color: red;
+}
+
+ @keyframes animate {
+  0%{
+    bottom: 0px;
+  }
+  100%{
+    bottom: -18%;
+  }
+ }
